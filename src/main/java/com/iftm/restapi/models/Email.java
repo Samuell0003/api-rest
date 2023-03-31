@@ -3,17 +3,17 @@ package com.iftm.restapi.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "email")
+@Table(name = "emails")
 public class Email {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100)
+    @Column(name = "email_from", length = 100)
     private String from;
 
-    @Column(length = 100)
+    @Column(name = "email_to",length = 100)
     private String to;
 
     @Column(length = 100)
@@ -32,6 +32,8 @@ public class Email {
         return "Email [id=" + id + ", from=" + from + ", to=" + to + ", subject=" + subject + ", bory=" + bory
                 + ", attachment=" + attachment + "]";
     }
+
+    
 
     @Override
     public int hashCode() {
@@ -87,8 +89,6 @@ public class Email {
             return false;
         return true;
     }
-
-
 
     public Long getId() {
         return id;
